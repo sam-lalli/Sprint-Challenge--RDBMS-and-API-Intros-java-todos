@@ -45,7 +45,7 @@ public class User extends Auditable
     private String primaryemail;
 
     //one to many with todos
-    @OneToMany(mappedBy = "users",
+    @OneToMany(mappedBy = "user",
     cascade = CascadeType.ALL,
     orphanRemoval = true)
     @JsonIgnoreProperties(value = "users", allowSetters = true)

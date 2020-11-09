@@ -42,10 +42,10 @@ public class SeedData implements CommandLineRunner
                            "admin@lambdaschool.local");
         u1.getTodos()
                 .add(new Todos(
-                            "Give Joe access rights", false));
+                            "Give Joe access rights", false, u1));
         u1.getTodos()
                 .add(new Todos(
-                               "Change the color of the home page", false));
+                               "Change the color of the home page", false, u1));
 
         userService.save(u1);
 
@@ -54,13 +54,13 @@ public class SeedData implements CommandLineRunner
                            "cinnamon@lambdaschool.local");
         u2.getTodos()
                 .add(new Todos(
-                               "Take a nap", false));
+                               "Take a nap", false, u2));
         u2.getTodos()
                 .add(new Todos(
-                               "Rearrange my hutch", false));
+                               "Rearrange my hutch", false, u2));
         u2.getTodos()
                 .add(new Todos(
-                               "Groom my fur", false));
+                               "Groom my fur", false, u2));
         userService.save(u2);
 
         // user
@@ -69,7 +69,7 @@ public class SeedData implements CommandLineRunner
                            "barnbarn@lambdaschool.local");
         u3.getTodos()
                 .add(new Todos(
-                               "Rearrange my hutch", false));
+                               "Rearrange my hutch", false, u2));
         userService.save(u3);
 
         User u4 = new User("puttat",

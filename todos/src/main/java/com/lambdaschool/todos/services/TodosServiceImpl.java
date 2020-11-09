@@ -13,26 +13,16 @@ import javax.persistence.EntityNotFoundException;
 public class TodosServiceImpl implements TodosService {
 
     @Autowired
-    private TodoRepository todoRepository;
+    TodoRepository todoRepository;
 
 
     @Transactional
     @Override
-    public Todos markComplete(Todos todos, long todoid)
+    public void markComplete(long todoid)
     {
          Todos currentTodo = todoRepository.findById(todoid)
                 .orElseThrow(() -> new EntityNotFoundException("Todo " + todoid + " Not Found" ));
 
-       if (currentTodo.getDescription() != null)
-       {
-           currentTodo.setDescription(todos.getDescription());
-       }
-       if (currentTodo.getUsers() != null)
-       {
-           currentTodo.setUsers(todos.getUsers());
-       }
-
-
-       return todoRepository.save(currentTodo);
+         currentTodo.setCompleted(true);
     }
 }

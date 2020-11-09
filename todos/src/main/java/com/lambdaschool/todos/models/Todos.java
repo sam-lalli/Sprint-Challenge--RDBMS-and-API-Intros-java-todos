@@ -20,14 +20,15 @@ public class Todos extends Auditable
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
     @JsonIgnoreProperties(value = "todos", allowSetters = true)
-    private User users;
+    private User user;
 
     public Todos() {
     }
 
-    public Todos(String description, boolean completed) {
+    public Todos(String description, boolean completed, User user) {
         this.description = description;
         this.completed = completed;
+        this.user = user;
     }
 
     public long getTodoid() {
@@ -52,7 +53,7 @@ public class Todos extends Auditable
         this.description = description;
     }
 
-    public boolean isCompleted() {
+    public boolean getCompleted() {
         return completed;
     }
 
@@ -61,17 +62,17 @@ public class Todos extends Auditable
     }
 
     public User getUsers() {
-        if (users == null)
+        if (user == null)
         {
             return null;
         } else
         {
-            return users;
+            return user;
         }
     }
 
     public void setUsers(User users) {
-        this.users = users;
+        this.user = users;
     }
 
     //    todoid primary key, not null long
